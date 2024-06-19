@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-primary: #1A4D2E;
+  --color-primary-variant: #4F6F52;
+  --color-vintage-touch: #E88D67;
+  --color-light: #F5EFE6;
+  --color-white: #fff;
+  --color-details-1: #333;
+  --color-details-2: #E8DFCA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+body {
+  background: url('images/BG3\ \(2\).jpg') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container {
+  background: var(--color-light);
+  border-radius: 1.875rem;
+  box-shadow: 0.625rem 0.625rem 0.938rem rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  width: 48rem;
+  max-width: 100%;
+  min-height: 30rem;
+}
+
+.container p {
+  font-size: 0.88rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.02rem;
+  margin: 1.25rem 0;
+
+}
+
+.container span {
+  font-size: 0.75rem;
+}
+
+.container a {
+  color: var(--color-details-1);
+  font-size: 0.813rem;
+  text-decoration: none;
+  margin: 0.94rem 0 0.63rem;
+}
+
+.container button {
+  background-color: var(--color-primary-variant);
+  color: var(--color-light);
+  font-size: 0.75rem;
+  padding: 0.63rem 2.813rem;
+  border: 0.063rem solid transparent;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.031rem;
+  text-transform: uppercase;
+  margin-top: 0.625rem;
+  cursor: pointer;
+}
+
+.container button.hidden {
+  background-color: transparent;
+  border-color: var(--color-white);
+}
+
+.container form {
+  background-color: var(--color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 2.5rem;
+  height: 100%;
+}
+
+.container input {
+  background-color: var(--color-white);
+  border: none;
+  margin: 0.5rem 0;
+  padding: 0.63rem 0.94rem;
+  font-size: 0.813rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  outline: none;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out; 
+}
+
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.active .sign-in {
+  transform: translateX(100%);
+}
+
+.sign-up {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+
+@keyframes move {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.social-icons {
+  margin: 1.25rem 0;
+}
+
+.social-icons a {
+  border: 0.063rem solid var(--color-details-1);
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.19rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.icon {
+  transition: all 0.4s ease-in-out;
+}
+
+.icon:hover {
+  background-color: var(--color-vintage-touch);
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  /* border-radius: 9.375rem 0 0 6.25rem; */
+  z-index: 1000;
+}
+
+.container.active .toggle-container {
+  transform: translateX(-100%);
+  /* border-radius: 0 9.375rem 6.25rem 0; */
+}
+
+.toggle {
+  background-color: var(--color-primary-variant);
+  height: 100%;
+  color: var(--color-white);
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 1.875rem;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.active .toggle-right {
+  transform: translateX(200%);
+}
+
+
